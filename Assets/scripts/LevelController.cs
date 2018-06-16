@@ -5,7 +5,8 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController current;
     Vector3 startingPosition;
-
+    int coins;
+   // int lives;
     void Awake()
     {
         current = this;
@@ -19,7 +20,14 @@ public class LevelController : MonoBehaviour
     {
         //При смерті кролика повертаємо на початкову позицію
         rabit.transform.position = this.startingPosition;
+        rabit.doSmall();
         rabit.transform.rotation = new UnityEngine.Quaternion(0,0,0,0);
 
+    }
+
+    public void addCoins(int c)
+    {
+        coins += c;
+        if (c < 0) coins = 0;
     }
 }

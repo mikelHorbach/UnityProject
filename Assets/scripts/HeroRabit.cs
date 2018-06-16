@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class HeroRabit : MonoBehaviour {
 
+    public bool IsBig_rabbit;
     public float speed = 1;
     bool isGrounded = false;
     bool JumpActive = false;
+    bool isDeath = false;
     float JumpTime = 0f;
     public float MaxJumpTime = 2f;
     public float JumpSpeed = 2f;
+    Vector3 start;
 
     Rigidbody2D myBody = null;
     // Use this for initialization
     void Start () {
         myBody = this.GetComponent<Rigidbody2D>();
         LevelController.current.setStartPosition(transform.position);
+        start = transform.position;
     }
 	
 	
@@ -26,6 +30,18 @@ public class HeroRabit : MonoBehaviour {
         float value = Input.GetAxis("Horizontal");
 
         Animator animator = GetComponent<Animator>();
+
+        if (animator.GetBool("death"))
+        {
+            if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Rabit_Die") || animator.GetCurrentAnimatorStateInfo(0).normalizedTime < animator.GetCurrentAnimatorStateInfo(0).length+1)
+            {
+                return;
+            }
+            animator.SetBool("death", false);
+            transform.position = start;
+
+        }
+
         if (Mathf.Abs(value) > 0)
         {
             animator.SetBool("run", true);
@@ -99,5 +115,52 @@ public class HeroRabit : MonoBehaviour {
         {
             animator.SetBool("jump", true);
         }
+
+     
+    }
+
+    public void  doBig()
+    {
+        if(IsBig_rabbit)
+        {
+            return;
+        }
+        IsBig_rabbit = true;
+        transform.localScale *= 2;
+    }
+
+    public void   doSmall()
+    {
+        if (!IsBig_rabbit)
+        {
+            revive();
+        }
+        else
+        {
+            transform.localScale /= 2;
+            IsBig_rabbit = false;
+        }
+
+        
+    }
+
+    public void death()
+    {
+        if (isGrounded)
+        {
+            var animator = GetComponent<Animator>();
+            animator.SetBool("death", true);
+            
+        }
+        else transform.position = start;
+
+        IsBig_rabbit = false;
+    }
+
+    public void revive()
+    {
+       // isDeath = true;
+        death();
+        // transform.position = start;
     }
 }
