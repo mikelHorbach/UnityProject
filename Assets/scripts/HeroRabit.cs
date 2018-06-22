@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HeroRabit : MonoBehaviour {
 
+    public static HeroRabit lastRabit = null;
     public bool IsBig_rabbit;
     public float speed = 1;
     bool isGrounded = false;
@@ -15,6 +16,15 @@ public class HeroRabit : MonoBehaviour {
     Vector3 start;
 
     Rigidbody2D myBody = null;
+
+
+
+    void Awake()
+    {
+        lastRabit = this;
+    }
+
+
     // Use this for initialization
     void Start () {
         myBody = this.GetComponent<Rigidbody2D>();
@@ -37,6 +47,7 @@ public class HeroRabit : MonoBehaviour {
             {
                 return;
             }
+            IsBig_rabbit = false;
             animator.SetBool("death", false);
             transform.position = start;
 

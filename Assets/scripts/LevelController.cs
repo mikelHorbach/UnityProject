@@ -5,8 +5,8 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController current;
     Vector3 startingPosition;
-    int coins;
-   // int lives;
+    int coins = 0;
+    int lives = 3;
     void Awake()
     {
         current = this;
@@ -29,5 +29,11 @@ public class LevelController : MonoBehaviour
     {
         coins += c;
         if (c < 0) coins = 0;
+    }
+
+    public void editLives(int l)
+    {
+        lives += l;
+        if (lives < 0) lives = 0;
     }
 }
