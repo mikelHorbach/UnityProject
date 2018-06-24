@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HeroRabit : MonoBehaviour {
 
@@ -170,8 +171,21 @@ public class HeroRabit : MonoBehaviour {
 
     public void revive()
     {
-       // isDeath = true;
+        // isDeath = true;
+        LevelController.current.editLives(-1);
         death();
         // transform.position = start;
+    }
+
+    
+    void loadCHooseLvlScene()
+    {
+        StartCoroutine(openDoor1());
+    }
+
+    IEnumerator openDoor1()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("ChooseLevelScene");
     }
 }

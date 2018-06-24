@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - door2
+  - door1
+  - redCrystal
+  - blueCrystal
+  - greenCrystal
   layers:
   - Default
   - TransparentFX
