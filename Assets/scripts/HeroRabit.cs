@@ -178,14 +178,5 @@ public class HeroRabit : MonoBehaviour {
     }
 
     
-    void loadCHooseLvlScene()
-    {
-        StartCoroutine(openDoor1());
-    }
-
-    IEnumerator openDoor1()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("ChooseLevelScene");
-    }
+    
 }

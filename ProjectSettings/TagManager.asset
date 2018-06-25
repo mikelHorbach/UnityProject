@@ -9,6 +9,7 @@ TagManager:
   - redCrystal
   - blueCrystal
   - greenCrystal
+  - end1
   layers:
   - Default
   - TransparentFX

@@ -122,7 +122,8 @@ MonoBehaviour:
   Timeout: 1
   speed: 0
   mode: 0
-  prefabCarrot: {fileID: 0}
+  prefabCarrot: {fileID: 1503180004838848, guid: 003d9fbe1e36a1e4496ee6aefbcc3729,
+    type: 2}
   break_time: 1
 --- !u!212 &212836453287281488
 SpriteRenderer:

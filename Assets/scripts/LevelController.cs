@@ -24,7 +24,8 @@ public class LevelController : MonoBehaviour
     public RawImage crystalRed;
     public RawImage crystalBlue;
     public RawImage crystalGreen;
-
+    public GameObject loseCanvas;
+    
 
     void Awake()
     {
@@ -63,18 +64,35 @@ public class LevelController : MonoBehaviour
     {
         lives += l;
         showLives(lives);
-        if (lives == 0) SceneManager.LoadScene("ChooseLevelScene");
+        if (lives == 0)
+        {
+            loseCanvas.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     public void showLives(int c)
     {
-        if(c==2)
+        if (c == 3) live3.texture = live1.texture;
+        else if (c == 2) { 
         live3.texture = emptyLive.texture;
+        live2.texture = live1.texture;
+        }
         else if (c == 1)
         {
             live2.texture = emptyLive.texture;
         }
-        else if (c==0) live1.texture = emptyLive.texture;
+        else if (c == 0) live1.texture = emptyLive.texture;
+    }
+
+    public void setLives(int c)
+    {
+        lives = c;
+    }
+
+    public int getLives()
+    {
+        return lives;
     }
 
     public void addFruits(int f)
@@ -119,4 +137,6 @@ public class LevelController : MonoBehaviour
     {
         crystal++;
     }
+
+    
 }
