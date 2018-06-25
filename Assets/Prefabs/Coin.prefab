@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HideAnimation: 0
+  coinCollectSound: {fileID: 8300000, guid: d07c1afb94cf04c50a369bdf0faaf7cf, type: 3}
 --- !u!212 &212735851452735298
 SpriteRenderer:
   m_ObjectHideFlags: 1

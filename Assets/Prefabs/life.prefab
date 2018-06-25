@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HideAnimation: 0
+  liveCollectSound: {fileID: 8300000, guid: a1871116ead2c4d23a1570e79b94efed, type: 3}
 --- !u!212 &212829411067902748
 SpriteRenderer:
   m_ObjectHideFlags: 1

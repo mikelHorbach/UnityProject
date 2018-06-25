@@ -198,9 +198,43 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1594994739725864, guid: 0623642dc86461b4da7b5f5939b441af, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0623642dc86461b4da7b5f5939b441af, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &292900549 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1966302627786600, guid: 0623642dc86461b4da7b5f5939b441af,
+    type: 2}
+  m_PrefabInternal: {fileID: 292900548}
+--- !u!1 &292900550 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1455625041991342, guid: 0623642dc86461b4da7b5f5939b441af,
+    type: 2}
+  m_PrefabInternal: {fileID: 292900548}
+--- !u!1 &292900551 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1987334003854628, guid: 0623642dc86461b4da7b5f5939b441af,
+    type: 2}
+  m_PrefabInternal: {fileID: 292900548}
+--- !u!114 &292900552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 292900549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3992b6fb373a4eadf09ec95d8070a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crystal: {fileID: 292900551}
+  fruit: {fileID: 292900550}
+  crystalSprite: {fileID: 21300000, guid: 1d59749b388494924bedae3370db5fe0, type: 3}
+  fruitSprite: {fileID: 21300000, guid: 397e43185a08b4129b4bc15135201dc0, type: 3}
 --- !u!4 &388034196 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4261160986546894, guid: 0623642dc86461b4da7b5f5939b441af,
@@ -325,7 +359,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ea94a06520be6499952557f09ee57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsLabel: {fileID: 0}
+  level: 0
+  maxFruits: 11
+  coinsLabel: {fileID: 1486104692}
   fruitsLabel: {fileID: 0}
   live1: {fileID: 0}
   live2: {fileID: 0}
@@ -338,6 +374,14 @@ MonoBehaviour:
   crystalBlue: {fileID: 0}
   crystalGreen: {fileID: 0}
   loseCanvas: {fileID: 0}
+  buttonSound: {fileID: 0}
+  musicOn: 1
+  soundOn: 1
+  Stats:
+    hasCrystals: 0
+    hasAllFruits: 0
+    levelPassed: 0
+    collectedFruits: 
 --- !u!4 &557510707
 Transform:
   m_ObjectHideFlags: 0
@@ -741,6 +785,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c30a5439f475a944bf627e3e19009fc, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1486104692 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114414990945678868, guid: 2c30a5439f475a944bf627e3e19009fc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1433850456}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1554359792
 Prefab:
   m_ObjectHideFlags: 0

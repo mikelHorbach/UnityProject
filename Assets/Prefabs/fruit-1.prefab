@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HideAnimation: 0
+  fruitCollectSound: {fileID: 8300000, guid: cd46aa2d6e78249dd8df3f3b948d168a, type: 3}
 --- !u!212 &212983241098660296
 SpriteRenderer:
   m_ObjectHideFlags: 1

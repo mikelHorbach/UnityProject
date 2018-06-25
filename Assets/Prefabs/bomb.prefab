@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HideAnimation: 0
+  bombCollectSound: {fileID: 8300000, guid: 0a239337795f5456b959aee0868bd6d6, type: 3}
 --- !u!212 &212272789833522662
 SpriteRenderer:
   m_ObjectHideFlags: 1

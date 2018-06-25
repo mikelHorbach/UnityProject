@@ -10,6 +10,8 @@ TagManager:
   - blueCrystal
   - greenCrystal
   - end1
+  - music
+  - sound
   layers:
   - Default
   - TransparentFX

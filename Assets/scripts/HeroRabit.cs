@@ -138,7 +138,7 @@ public class HeroRabit : MonoBehaviour {
             return;
         }
         IsBig_rabbit = true;
-        transform.localScale *= 2;
+        transform.localScale *= 1.5f;
     }
 
     public void   doSmall()
@@ -149,7 +149,7 @@ public class HeroRabit : MonoBehaviour {
         }
         else
         {
-            transform.localScale /= 2;
+            transform.localScale /= 1.5f;
             IsBig_rabbit = false;
         }
 

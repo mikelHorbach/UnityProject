@@ -2,10 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChooseLevel : MonoBehaviour {
     public GameObject settingsPanel;
     public GameObject winPanel;
+    public Sprite offmusic;
+    public Sprite onMusic;
+    public Sprite offsound;
+    public Sprite onSound;
+    public Button sound;
+    public Button music;
+    //private AudioClip buttonSound = LevelController.current.buttonSound;
+
     public void openDr1()
     {
         StartCoroutine(openDoor1());
@@ -44,14 +53,17 @@ public class ChooseLevel : MonoBehaviour {
         }
     }
 
+
     public void openSettings()
     {
+       // AudioSource.PlayClipAtPoint(buttonSound, transform.position);
         settingsPanel.SetActive(true);
         Time.timeScale =0;
     }
 
     public void closeSettings()
     {
+        AudioSource.PlayClipAtPoint(LevelController.current.buttonSound, transform.position);
         settingsPanel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -69,6 +81,7 @@ public class ChooseLevel : MonoBehaviour {
 
     public void loadMenu()
     {
+        AudioSource.PlayClipAtPoint(LevelController.current.buttonSound, transform.position);
         Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
@@ -78,4 +91,20 @@ public class ChooseLevel : MonoBehaviour {
         winPanel.SetActive(true);
         Time.timeScale = 0;
     }
+
+    public void offSound()
+    {
+        LevelController.current.soundOn = !LevelController.current.soundOn;
+        if (LevelController.current.soundOn) sound.GetComponent<Image>().sprite = onSound;
+        else sound.GetComponent<Image>().sprite = offsound;
+    }
+
+    public void offMusic()
+    {
+        LevelController.current.musicOn = !LevelController.current.musicOn;
+        if (LevelController.current.musicOn) music.GetComponent<Image>().sprite = onMusic;
+        else music.GetComponent<Image>().sprite = offmusic;
+    }
+
+    
 }

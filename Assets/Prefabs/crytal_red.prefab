@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HideAnimation: 0
+  crystalCollectSound: {fileID: 8300000, guid: 1efea67b8444d4802941941e49c70cc0, type: 3}
 --- !u!212 &212954597397858392
 SpriteRenderer:
   m_ObjectHideFlags: 1

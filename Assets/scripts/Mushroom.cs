@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Mushroom : Collectable
 {
+    public AudioClip mushroomCollectSound;
     protected override void OnRabitHit(HeroRabit rabit)
     {
-        if(!rabit.IsBig_rabbit)
+        if (LevelController.current.soundOn)
+            AudioSource.PlayClipAtPoint(mushroomCollectSound, transform.position);
+        if (!rabit.IsBig_rabbit)
         {
             rabit.doBig();
         }

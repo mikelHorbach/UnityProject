@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 public class LevelController : MonoBehaviour
 {
     public static LevelController current;
+    public int level;
+    public int maxFruits = 11;
     Vector3 startingPosition;
     int coins = 0;
     int lives = 3;
@@ -25,11 +27,27 @@ public class LevelController : MonoBehaviour
     public RawImage crystalBlue;
     public RawImage crystalGreen;
     public GameObject loseCanvas;
-    
+
+    public AudioClip buttonSound;
+
+    public bool musicOn = true;
+    public bool soundOn = true;
+
+    public LevelStat Stats;
 
     void Awake()
     {
         current = this;
+        string str = PlayerPrefs.GetString("stats"+level, null);
+        Stats = JsonUtility.FromJson<LevelStat>(str);
+        if (Stats==null)
+        {
+            Stats = new LevelStat();
+        }
+        Time.timeScale = 1;
+        coins = PlayerPrefs.GetInt("coins", 0);
+        showCoins(coins);
+        if (!soundOn) SoundManager.instance.musicOf();
     }
 
     public void setStartPosition(Vector3 pos)
@@ -49,6 +67,7 @@ public class LevelController : MonoBehaviour
     {
         coins += c;
         if (c < 0) coins = 0;
+
         showCoins(coins);
        // coinsLabel.text = coins.ToString();
     }
@@ -98,6 +117,7 @@ public class LevelController : MonoBehaviour
     public void addFruits(int f)
     {
         fruits += f;
+        if (fruits == maxFruits) Stats.hasAllFruits = true;
         showFruits(fruits);
     }
     public void showFruits(int f)
@@ -136,7 +156,23 @@ public class LevelController : MonoBehaviour
     public void addCrystal()
     {
         crystal++;
+        if (crystal == 3) Stats.hasCrystals = true;
     }
 
-    
+
+    private void OnDestroy()
+    {
+        Debug.Log("onDestr");
+        PlayerPrefs.SetInt("coins", coins);
+        PlayerPrefs.Save();
+        string str = JsonUtility.ToJson(this.Stats);
+        PlayerPrefs.SetString("stats"+level, str);
+        PlayerPrefs.Save();
+    }
+
+    public void OpenLevel2()
+    {
+
+    }
+
 }
